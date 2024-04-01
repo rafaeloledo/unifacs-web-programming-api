@@ -5,7 +5,7 @@ const router = express.Router()
 
 router.get('/', async (req, res) => {
   try {
-    const { rows } = await pooll.query('SELECT * FROM users')
+    const { rows } = await pool.query('SELECT * FROM products')
     res.json(rows)
   } catch (err) {
     console.error(err.message)
@@ -15,9 +15,9 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    const { username, email } = req.body
+    const { name, description, value, supplier} = req.body
     const newUser = await pool.query(
-      'INSERT INTO users (username, email) VALUES ($1, $2) RETURNING *',
+      'INSERT INTO products (name, description, value, supplier) VALUES ($1, $2) RETURNING *',
       [username, email]
     )
 

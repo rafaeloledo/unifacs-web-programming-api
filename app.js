@@ -1,10 +1,10 @@
 const express = require('express')
 const app = express()
 
-const usersRouter = require('./src/users')
+const productsRouter = require('./src/products')
 
 app.use(express.json())
-app.use('/users', usersRouter)
+app.use('/products', productsRouter)
 
 const PORT = process.env.PORT || 3000
 
