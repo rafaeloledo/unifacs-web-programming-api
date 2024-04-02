@@ -15,13 +15,13 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    const { name, description, value, supplier} = req.body
-    const newUser = await pool.query(
-      'INSERT INTO products (name, description, value, supplier) VALUES ($1, $2) RETURNING *',
-      [username, email]
+    const { name, description, value, supplier } = req.body
+    const newProduct = await pool.query(
+      'INSERT INTO products (name, description, value, supplier) VALUES ($1, $2, $3, $4) RETURNING *',
+      [name, description, value, supplier]
     )
 
-    res.json(newUser.rows[0])
+    res.json(newProduct.rows[0])
   } catch (err) {
     console.error(err.message)
     res.status(500).send('Server Error')
