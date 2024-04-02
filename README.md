@@ -31,5 +31,5 @@ O comando `nodemon` é a versão aprimorada do ordinário `node .\app.js`, com l
 
 Depois disso, será possível ver uma tela como esta
 
-![](.\img\nodemon.png)
+![](img/nodemon.png)
 
